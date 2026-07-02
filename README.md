@@ -10,6 +10,7 @@ MakeMKV - Ripping my physical media colletion of films and shows.
 Navidrome - Open-soruce cross-platform music server
 
 Jellyfin - Open-source cross-platform media server based off Emby and much better than Plex
+         
          Theme  - Neutralfin 
          Plugins - IntroSkipper, Session Cleaner, Subtitle Extract
 
