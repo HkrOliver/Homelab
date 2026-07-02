@@ -4,5 +4,7 @@ This is my homelab repository where I'll be storing the config files that I'm us
 
 # Current Services Running
 Docker
+
 Jellyfin 
+
 Netbird
