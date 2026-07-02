@@ -5,8 +5,10 @@ This is my homelab repository where I'll be storing the config files that I'm us
 # Current Services Running
 Docker - To run my contaienrs
 
-MakeMKV - Ripping my physical media collection
+MakeMKV - Ripping my physical media colletion of films and shows.
 
-Jellyfin - Open-source media server based off Emby and much better than Plex
+Navidrome - Open-soruce cross-platform music server
+
+Jellyfin - Open-source cross-platform media server based off Emby and much better than Plex
 
 Netbird - Open-source mesh VPN alternative to Tailscale
