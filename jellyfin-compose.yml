@@ -1,0 +1,41 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    # Optional - specify the uid and gid you would like Jellyfin to use instead of root
+    user: uid:gid
+    ports:
+      - 8096:8096/tcp
+      - 8920:8920/tcp 
+      - 7359:7359/udp
+    volumes:
+      - /path/to/config:/config
+      - /path/to/cache:/cache
+      - type: bind
+        source: /path/to/media
+        target: /media
+      - type: bind
+        source: /path/to/media2
+        target: /media2
+        read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      - type: bind
+        source: /path/to/fonts
+        target: /usr/local/share/fonts/custom
+        read_only: true
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    environment:
+    # Always using a private IPv4 address on setup to then implement additional security later on    
+      - JELLYFIN_PublishedServerUrl=http://192.168.1.100
+      - TZ=Europe/London
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+#   extra_hosts:
+#     - 'host.docker.internal:host-gateway'
+    devices:
+      - /dev/dri:/dev/dri # Enabling Intel QuickSync (QSV), it'll be different for NVIDIA and AMD
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8096"]
+        interval: 1m
+        timeout: 10s
+        retries: 3
